@@ -5,7 +5,7 @@ function add(){
         return count
     }
 }
-var addFn = add()
+let addFn = add()
 console.log(addFn());
 console.log(addFn());
 console.log(addFn());
