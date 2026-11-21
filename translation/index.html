@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand"><span class="mark" aria-hidden="true">译</span><span>青译</span></div>
+  <span class="meta-top">12 种语言 · 在线翻译</span>
+</header>
+
+<main>
+  <div class="stage">
+    <section class="pane" aria-label="原文输入">
+      <div class="head">
+        <div class="field">
+          <label for="src">源语言</label>
+          <div class="select"><select id="src"></select></div>
+        </div>
+        <button type="button" class="ghost" id="clear">清空</button>
+      </div>
+      <div class="row"><label for="source-text">原文内容</label><span class="num" id="count">0 / 1500</span></div>
+      <textarea id="source-text" maxlength="1500" placeholder="输入或粘贴需要翻译的内容…" spellcheck="false" autocomplete="off"></textarea>
+      <div class="foot">
+        <span class="hint">Ctrl + Enter 翻译</span>
+        <button type="button" class="btn" id="translate">翻译</button>
+      </div>
+    </section>
+
+    <button type="button" class="swap" id="swap" aria-label="交换源语言与目标语言">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6.5h12"/><path d="m12.5 3.5 3 3-3 3"/><path d="M16.5 13.5h-12"/><path d="m7.5 10.5-3 3 3 3"/></svg>
+    </button>
+
+    <section class="pane" aria-label="译文结果">
+      <div class="head">
+        <div class="field">
+          <label for="tgt">目标语言</label>
+          <div class="select"><select id="tgt"><option value="英语">English</option>
+            <option value="中文">中文</option>
+            <option value="日语">日本語</option>
+            <option value="韩语">한국어</option>
+            <option value="西班牙语">Español</option>
+            <option value="法语">Français</option>
+            <option value="德语">Deutsch</option></select></div>
+        </div>
+        <button type="button" class="ghost" id="copy" disabled>复制</button>
+      </div>
+      <div class="row"><span>译文</span><span class="num" id="out-count">—</span></div>
+      <div class="output" aria-live="polite">
+        <p class="placeholder" id="placeholder">
+          <span id="ph-title">译文会出现在这里</span>
+          <span class="hint" id="ph-hint">点击「翻译」或按 Ctrl + Enter</span>
+        </p>
+        <p class="result" id="result" hidden></p>
+      </div>
+      <div class="foot">
+        <span class="status" id="status">等待翻译</span>
+        <span class="hint">结果仅供参考</span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="./index.js"></script>
+</body>
+</html>
