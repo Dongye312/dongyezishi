@@ -1,13 +1,11 @@
 // function A() {
-// new Promise((resolve, reject) => {
+//     return new Promise((resolve, reject) => {
 //     setTimeout(() => {
 //         console.log('A');
 //         resolve()
 //     },1000)
 // })
 // }
-
-const { log } = require("async");
 
 // function B() {
 //     console.log('B');
@@ -19,19 +17,27 @@ const { log } = require("async");
 // })
 
 
+
 function A() {
-    setTimeout(() => {
-        console.log('A');
-    }, 1000)
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('A');
+            resolve()
+        }, 1000)
+    })
 }
 
 function B() {
     console.log('B');
 }
 
-async function foo() {
-    await A()
-    B()
-}
+await A()
+B()
 
-foo()
+
+// async function foo() {  //async 会让函数返回一个 Promise对象
+//     await A()   // await 只能约束 Promise对象 
+//     B()
+// }
+// // await 让右侧的代码变成了同步代码，await 会将后续的代码挤到微任务队列中
+// foo()
